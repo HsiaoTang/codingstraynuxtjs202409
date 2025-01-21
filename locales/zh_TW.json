@@ -2,6 +2,12 @@
   "title": "CodingStray",
   "en": "English",
   "zh_TW": "繁體中文",
+  "sign_up": "註冊",
+  "log_in": "登入",
+  "log_out": "登出",
+  "search": "搜尋文章",
+  "website_intro_pt1": "分享經驗、分享心情",
+  "website_intro_pt2": "分享生命中的點點滴滴",
   "test": {
     "test": "測試"
   }
