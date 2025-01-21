@@ -2,6 +2,12 @@
   "title": "CodingStray",
   "en": "English",
   "zh_TW": "繁體中文",
+  "sign_up": "Sign Up",
+  "log_in": "Log in",
+  "log_out": "Log out",
+  "search": "Search article",
+  "website_intro_pt1": "Share experience. Share feelings.",
+  "website_intro_pt2": "Share the bits and pieces of life.",
   "test": {
     "test": "test"
   }

@@ -1,36 +1,53 @@
 <template>
-  <nav class="fixed top-0 left-0 right-0 bg-green-100 h-14 p-2 shadow-md z-20">
+  <nav :class="['fixed top-0 left-0 right-0 h-16 p-2 z-20',
+    isScrolled ? 'bg-green-100 shadow-md' : 'bg-transparent'
+  ]">
     <div class="mx-2 flex items-center justify-between">
-      <div class="text-green-800 text-lg font-semibold">
+      <div :class="['text-lg font-semibold',
+        isScrolled ? 'text-green-800' : 'text-green-100'
+      ]">
         <a href="/" class="flex items-center">
-          <LogoSvg />
-          <span class="px-3">{{ t('title') }}</span>
+          <component :is="props.logoIcon"/>
+          <span class="px-3">{{ title }}</span>
         </a>
       </div>
-      <button class="p-0" @click="toggleSidebar">
-        <MemberSvg />
-      </button>
+      <div class="relative flex item-center w-2/5">
+        <div class="absolute left-3 self-center text-gray-400">
+          <SearchSvg />
+        </div>
+        <input 
+          class="w-full h-10 pl-12 shadow-inner rounded-md focus:bg-amber-50 focus:outline-gray-400" 
+          :placeholder="t('search')"
+        />
+      </div>
+      <a :class="['p-0 items-center cursor-pointer',
+        isScrolled ? 'text-green-800' : 'text-green-100'
+      ]">
+        <MemberSvg @click="toggleSidebar"/>
+      </a>
     </div>
-    <!-- 背景遮罩 -->
+
     <div
       v-if="isSidebarOpen"
       class="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm z-0 transition-opacity duration-1000"
       @click="toggleSidebar"
     ></div>
 
-    <!-- 側邊欄 -->
-    <div
-      :class="[
-        'fixed top-0 right-0 w-64 h-full bg-green-100 shadow-lg z-10 transform transition-transform duration-300',
-        isSidebarOpen ? 'translate-x-0' : 'translate-x-full'
-      ]"
-    >
+    <div :class="['fixed top-0 right-0 w-44 h-full bg-green-100 shadow-lg z-10 transform transition-transform duration-300',
+      isSidebarOpen ? 'translate-x-0' : 'translate-x-full'
+    ]">
       <div class="p-4">
-        <h2 class="text-lg font-bold mb-4">側邊欄內容</h2>
-        <ul class="space-y-2">
-          <li><a href="#" class="text-blue-500 hover:underline">選項 1</a></li>
-          <li><a href="#" class="text-blue-500 hover:underline">選項 2</a></li>
-          <li><a href="#" class="text-blue-500 hover:underline">選項 3</a></li>
+        <ul v-for="memberFunc in props.memberFuncs" >
+          <li :key="memberFunc.funcName" class="flex" v-if="memberFunc.show">
+            <a
+              href="#" 
+              class="flex p-2 space-x-4 text-green-800 items-center"
+              @click="memberFunc.onClick"
+            >
+              <component :is="memberFunc.icon" />
+              <text>{{ memberFunc.funcName }}</text>
+            </a>
+          </li>
         </ul>
       </div>
     </div>
@@ -39,21 +56,55 @@
 
 <script setup lang="ts">
 import { useI18n } from 'vue-i18n';
-import LogoSvg from '~/assets/icons/logo.svg';
-import MemberSvg from '~/assets/icons/member.svg';
-import { ref } from 'vue';
+import { SearchSvg, MemberSvg } from '~/assets/icons';
+import { ref, onMounted, onBeforeUnmount, type Ref } from 'vue';
 
 const { t } = useI18n();
 
-const isSidebarOpen = ref(false);
+const isSidebarOpen: Ref<boolean> = ref(false);
 
-const toggleSidebar = () => {
+const toggleSidebar: () => void = () => {
   isSidebarOpen.value = !isSidebarOpen.value;
 };
 
+const isScrolled: Ref<boolean> = ref(false);
+
+const handleScroll: () => void = () => {
+  const pageHeight: number = window.innerHeight;
+  const scrollTop: number = window.scrollY;
+  isScrolled.value = scrollTop > pageHeight + 32;
+}
+
+export interface MemberFunctions {
+  show: boolean,
+  onClick: () => void,
+  icon: object | string,
+  funcName: string,
+}
+
+interface NavbarProps {
+  logoIcon?: object | string,
+  title?: string,
+  memberFuncs: MemberFunctions[],
+  scrollEffectOn: boolean,
+}
+
+const props = withDefaults(defineProps<NavbarProps>(), 
+  {
+    logoIcon: '',
+    title: '',
+  }
+);
+
+onMounted(() => {
+  if(props.scrollEffectOn) {
+    handleScroll();
+    window.addEventListener('scroll', handleScroll);
+  }
+});
+
+onBeforeUnmount(() => {
+  window.removeEventListener('scroll', handleScroll);
+});
 
 </script>
-
-<style scoped>
-
-</style>
