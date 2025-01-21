@@ -10,13 +10,16 @@ export default defineNuxtConfig({
     '@nuxtjs/tailwindcss',
     '@nuxtjs/i18n',
     'nuxt-svgo-loader',
+    '@nuxt/image',
   ],
   i18n: {
     vueI18n: './i18n.config.ts',
   },
   runtimeConfig: {
     public: {
-      
+      keycloakUrl: process.env.KEYCLOAK_URL,
+      keycloakRealm: process.env.KEYCLOAK_REALM,
+      keycloakClientId: process.env.KEYCLOAK_CLIENT_ID,
     }
   },
 })
