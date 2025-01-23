@@ -10,16 +10,15 @@
       :webIntroLines="[t('website_intro_pt1'), t('website_intro_pt2')]"
       :indexBackDropUrl="indexBackDropUrl"
     />
-    <main class="bg-green-50 pb-32 z-10">
+    <main class="bg-green-50 pb-32 z-10 h-[2000px]">
       <NuxtPage />
     </main>
     <Footer></Footer>
   </div>
 </template>
 <script setup lang="ts">
-import Navbar, { type MemberFunctions } from '~/components/common/Navbar.vue';
-import Footer from '~/components/common/Footer.vue';
-import IndexBackDrop from '~/components/common/IndexBackDrop.vue';
+import  { type MemberFunctions } from '~/components/common/Navbar.vue';
+import { Navbar, IndexBackDrop, Footer } from '~/components/common';
 import { useNuxtApp } from '~/node_modules/nuxt/dist/app';
 import { onMounted, ref, type Ref } from 'vue';
 import { LogoSvg, SignupSvg, LoginSvg, LogoutSvg } from '~/assets/icons';
@@ -41,7 +40,7 @@ const memberFuncs: MemberFunctions[] = [
       $getKcInstance().register();
     },
     icon: SignupSvg,
-    funcName: t('sign_up')
+    funcName: 'sign_up'
   },
   {
     show: !member.authorized,
@@ -49,7 +48,7 @@ const memberFuncs: MemberFunctions[] = [
       $getKcInstance().login();
     },
     icon: LoginSvg,
-    funcName: t('log_in')
+    funcName: 'log_in'
   },
   {
     show: member.authorized,
@@ -57,7 +56,7 @@ const memberFuncs: MemberFunctions[] = [
       $getKcInstance().logout();
     },
     icon: LogoutSvg,
-    funcName: t('log_out')
+    funcName: 'log_out'
   }
 ]
 const isScrolledEffectOn: Ref<boolean> = ref(true);

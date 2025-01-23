@@ -13,8 +13,8 @@
   </div>
 </template>
 <script setup lang="ts">
-import Navbar, { type MemberFunctions } from '~/components/common/Navbar.vue';
-import Footer from '~/components/common/Footer.vue';
+import { type MemberFunctions } from '~/components/common/Navbar.vue';
+import { Navbar, Footer } from '~/components/common';
 import { useNuxtApp } from '~/node_modules/nuxt/dist/app';
 import { onMounted, ref, type Ref } from 'vue';
 import { LogoSvg, SignupSvg, LoginSvg, LogoutSvg } from '~/assets/icons';

@@ -8,6 +8,15 @@
   "search": "Search article",
   "website_intro_pt1": "Share experience. Share feelings.",
   "website_intro_pt2": "Share the bits and pieces of life.",
+  "topics": "Topics",
+  "popular": "Popular",
+  "latest": "Latest",
+  "nature": "Nature",
+  "coding": "Coding",
+  "art": "Art",
+  "sport": "Sport",
+  "politics": "Politics",
+  "music": "Music",
   "test": {
     "test": "test"
   }

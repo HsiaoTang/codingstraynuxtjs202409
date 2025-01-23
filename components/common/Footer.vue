@@ -1,6 +1,6 @@
 <template>
   <footer 
-    :class="['fixed bottom-0 left-0 right-0 h-16 p-2 z-10 content-center',
+    :class="['fixed bottom-0 left-0 right-0 h-16 p-2 z-10 content-center transition duration-500',
       isScrolled ? 'bg-green-100' : 'bg-transparent'
     ]" 
     :style="isScrolled ? 'box-shadow: 0 -4px 6px -1px rgb(0 0 0 / 0.1)' : ''"
