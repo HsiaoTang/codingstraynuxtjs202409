@@ -1,6 +1,7 @@
-import { defineI18nConfig } from '~/node_modules/@nuxtjs/i18n/dist/runtime/composables/index';
+
 import zh_TW from '~/locales/zh_TW.json';
 import en from '~/locales/en.json';
+import { defineI18nConfig } from '~/node_modules/@nuxtjs/i18n/dist/runtime/composables/index';
 
 export default defineI18nConfig(() => ({
   legacy: false,

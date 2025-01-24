@@ -7,14 +7,13 @@
   </div>
 </template>
 <script setup lang="ts">
-import { onMounted } from 'vue';
 import { useThemeStore } from '~/stores/theme';
 import { useI18n } from 'vue-i18n';
-import { useRuntimeConfig } from '~/node_modules/nuxt/dist/app/nuxt.js';
+import { useRuntimeConfig } from '~/node_modules/nuxt/dist/app';
 
 const runtimeConfig = useRuntimeConfig()
 const themeStore = useThemeStore();
-const { t, setLocale } = useI18n();
+const { t } = useI18n();
 // onMounted(() => {
 //   setLocale('en');
 // })

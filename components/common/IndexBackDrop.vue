@@ -2,7 +2,7 @@
   <div 
     class="flex flex-col bg-fixed bg-cover h-dvh text-green-100 text-2xl font-extrabold drop-shadow-md justify-center"
     :style="[{ 
-      backgroundImage: `url('${props.indexBackDropUrl}')`,
+      backgroundImage: `url('${runtimeConfig.public.imgResourcesBaseUrl}${props.indexBackDropUrl}')`,
     }]"
   >
     <div v-for="webIntro in props.webIntroLines" class="self-center">
@@ -11,7 +11,10 @@
   </div>
 </template>
 <script setup lang="ts">
-import { computed } from 'vue';
+import { onMounted } from 'vue';
+import { useRuntimeConfig } from '~/node_modules/nuxt/dist/app';
+
+const runtimeConfig = useRuntimeConfig()
 
 interface IndexBackDropProps {
   webIntroLines?: string[],

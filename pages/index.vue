@@ -7,9 +7,7 @@ import { definePageMeta } from '~/node_modules/nuxt/dist/pages/runtime/composabl
 import { LatestSvg, PopularSvg, TopicsSvg } from '~/assets/icons';
 import { TabContol, TopicGrids, PopularGrids, LatestGrids } from '~/components/common';
 
-
 definePageMeta({ layout: 'entrypoint' })
-
 
 const tabFuncs = [
   {

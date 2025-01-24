@@ -15,7 +15,7 @@
 <script setup lang="ts">
 import { type MemberFunctions } from '~/components/common/Navbar.vue';
 import { Navbar, Footer } from '~/components/common';
-import { useNuxtApp } from '~/node_modules/nuxt/dist/app';
+import { useNuxtApp } from 'nuxt/app';
 import { onMounted, ref, type Ref } from 'vue';
 import { LogoSvg, SignupSvg, LoginSvg, LogoutSvg } from '~/assets/icons';
 import { useI18n } from 'vue-i18n';
