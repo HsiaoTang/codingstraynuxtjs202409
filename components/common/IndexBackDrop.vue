@@ -11,7 +11,6 @@
   </div>
 </template>
 <script setup lang="ts">
-import { onMounted } from 'vue';
 import { useRuntimeConfig } from '~/node_modules/nuxt/dist/app';
 
 const runtimeConfig = useRuntimeConfig()

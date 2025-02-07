@@ -2,7 +2,12 @@
 export default {
   content: [],
   theme: {
-    extend: {},
+    extend: {
+      height: {
+        'screen-50': '50vh',
+        'screen-60': '60vh',
+      },
+    },
   },
   plugins: [],
 }

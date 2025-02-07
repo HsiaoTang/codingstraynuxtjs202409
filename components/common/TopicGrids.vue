@@ -1,7 +1,7 @@
 <template>
-  <div class="grid grid-cols-2 md:grid-cols-3">
+  <div class="grid grid-cols-2 md:grid-cols-3 h-screen-60">
     <div 
-      class="flex m-2 bg-cover bg-center h-48" 
+      class="flex m-2 bg-cover bg-center" 
       v-for="topicGridProps in props.topicGridPropsArray"
       :style="{ 
         backgroundImage: `url('${runtimeConfig.public.imgResourcesBaseUrl}${topicGridProps.url}')`

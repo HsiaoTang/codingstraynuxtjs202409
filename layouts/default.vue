@@ -20,6 +20,7 @@ import { onMounted, ref, type Ref } from 'vue';
 import { LogoSvg, SignupSvg, LoginSvg, LogoutSvg } from '~/assets/icons';
 import { useI18n } from 'vue-i18n';
 import { useMemberStore } from '~/stores/member';
+import Keycloak from 'keycloak-js';
 
 const { t } = useI18n();
 const { $getKcInstance } = useNuxtApp();
@@ -28,29 +29,32 @@ const member = useMemberStore();
 const scrollEffectOn: Ref<boolean> = ref(false);
 
 const memberFuncs: MemberFunctions[] = [
-  {
+{
     show: !member.authorized,
-    onClick: () => {
-      $getKcInstance().register();
+    onClick: async () => {
+      const keycloak: Keycloak = await $getKcInstance();
+      keycloak.register();
     },
     icon: SignupSvg,
-    funcName: t('sign_up')
+    funcName: 'sign_up'
   },
   {
     show: !member.authorized,
-    onClick: () => {
-      $getKcInstance().login();
+    onClick: async () => {
+      const keycloak: Keycloak = await $getKcInstance();
+      keycloak.login();
     },
     icon: LoginSvg,
-    funcName: t('log_in')
+    funcName: 'log_in'
   },
   {
     show: member.authorized,
-    onClick: () => {
-      $getKcInstance().logout();
+    onClick: async () => {
+      const keycloak: Keycloak = await $getKcInstance();
+      keycloak.logout();
     },
     icon: LogoutSvg,
-    funcName: t('log_out')
+    funcName: 'log_out'
   }
 ]
 

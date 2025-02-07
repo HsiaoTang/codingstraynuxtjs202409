@@ -6,27 +6,29 @@ export default defineNuxtPlugin(nuxtApp => {
   const runtimeConfig = useRuntimeConfig();
   const getKcInstance: () => Keycloak = () => { 
     const kcInstance = new Keycloak({
-      url: runtimeConfig.public.keycloakUrl || 'http://localhost:9090',
-      realm: runtimeConfig.public.keycloakRealm || 'coding_stray',
-      clientId: runtimeConfig.public.keycloakClientId || 'frontend',
+      url: runtimeConfig.public.keycloakUrl ?? 'http://localhost:9090',
+      realm: runtimeConfig.public.keycloakRealm ?? 'coding_stray',
+      clientId: runtimeConfig.public.keycloakClientId ?? 'frontend',
     });
 
     const member = useMemberStore();
-    const token = useCookie('token');
+    // const token = useCookie('token');
     
     kcInstance.init({ 
       onLoad: 'check-sso',
       responseMode: 'query',
     })
-      .then((auth) => {
-        member.setAuthorized(auth);
-        token.value = auth ? kcInstance.token : null;
+      .then((isAuth) => {
+        member.setAuthorized(isAuth);
+        if(isAuth && kcInstance.token) {
+          // token.value = kcInstance.token;
+          console.log(kcInstance);
+        }
       })
       .catch((e) => {
-        member.setAuthorized(false);
-        token.value = null;
         console.error(e);
-      })
+        member.setAuthorized(false);
+      });
     
     return kcInstance;
   }

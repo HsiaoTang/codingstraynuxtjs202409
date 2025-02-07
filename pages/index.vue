@@ -6,8 +6,10 @@
 import { definePageMeta } from '~/node_modules/nuxt/dist/pages/runtime/composables';
 import { LatestSvg, PopularSvg, TopicsSvg } from '~/assets/icons';
 import { TabContol, TopicGrids, PopularGrids, LatestGrids } from '~/components/common';
+import { onMounted } from 'vue';
+import { useNuxtApp } from 'nuxt/app';
 
-definePageMeta({ layout: 'entrypoint' })
+definePageMeta({ layout: 'entrypoint' });
 
 const tabFuncs = [
   {
@@ -47,7 +49,43 @@ const tabFuncs = [
     title: 'popular',
     icon: PopularSvg,
     component: PopularGrids,
-    content: []
+    content: {
+      popularArticleArray: [
+        {
+          author: '',
+          title: '',
+          dateTime: '',
+          
+        },
+        {
+
+        },
+        {
+
+        },
+        {
+
+        },
+        {
+          
+        },
+        {
+
+        },
+        {
+
+        },
+        {
+
+        },
+        {
+
+        },
+        {
+
+        },
+      ]
+    }
   },
   {
     title: 'latest',
@@ -57,6 +95,10 @@ const tabFuncs = [
   },
 ];
 
+const { $getKcInstance } = useNuxtApp();
 
+onMounted(() => {
+  $getKcInstance();
+})
 
 </script>
