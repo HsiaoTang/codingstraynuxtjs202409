@@ -37,18 +37,20 @@
       isSidebarOpen ? 'translate-x-0' : 'translate-x-full'
     ]">
       <div class="p-4">
-        <ul v-for="memberFunc in props.memberFuncs" >
-          <li :key="memberFunc.funcName" class="flex" v-if="memberFunc.show">
-            <a
-              href="#" 
-              class="flex p-2 space-x-4 text-green-800 items-center"
-              @click="memberFunc.onClick"
-            >
-              <component :is="memberFunc.icon" width="40" height="40" fill="currentColor"/>
-              <text>{{ t(memberFunc.funcName) }}</text>
-            </a>
-          </li>
-        </ul>
+        <ClientOnly>
+          <ul v-for="memberFunc in props.memberFuncs.filter(func => func.show === true)" >
+            <li :key="memberFunc.funcName" class="flex">
+              <a
+                href="#" 
+                class="flex p-2 space-x-4 text-green-800 items-center"
+                @click="memberFunc.onClick"
+              >
+                <component :is="memberFunc.icon" width="40" height="40" fill="currentColor"/>
+                <text>{{ t(memberFunc.funcName) }}</text>
+              </a>
+            </li>
+          </ul>
+        </ClientOnly>
       </div>
     </div>
   </nav>
@@ -58,6 +60,9 @@
 import { useI18n } from 'vue-i18n';
 import { SearchSvg, MemberSvg } from '~/assets/icons';
 import { ref, onMounted, onBeforeUnmount, type Ref } from 'vue';
+import { useNuxtApp } from 'nuxt/app';
+
+const { $keycloak } = useNuxtApp();
 
 const { t } = useI18n();
 
@@ -96,7 +101,10 @@ const props = withDefaults(defineProps<NavbarProps>(),
   }
 );
 
+
+
 onMounted(() => {
+  console.log(props.memberFuncs);
   if(props.scrollEffectOn) {
     handleScroll();
     window.addEventListener('scroll', handleScroll);

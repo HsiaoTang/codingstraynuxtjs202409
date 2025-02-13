@@ -6,10 +6,8 @@
 import { definePageMeta } from '~/node_modules/nuxt/dist/pages/runtime/composables';
 import { LatestSvg, PopularSvg, TopicsSvg } from '~/assets/icons';
 import { TabContol, TopicGrids, PopularGrids, LatestGrids } from '~/components/common';
-import { onMounted } from 'vue';
-import { useNuxtApp } from 'nuxt/app';
 
-definePageMeta({ layout: 'entrypoint' });
+definePageMeta({ layout: 'entrypoint', middleware: 'auth' });
 
 const tabFuncs = [
   {
@@ -94,11 +92,5 @@ const tabFuncs = [
     content: []
   },
 ];
-
-const { $getKcInstance } = useNuxtApp();
-
-onMounted(() => {
-  $getKcInstance();
-})
 
 </script>

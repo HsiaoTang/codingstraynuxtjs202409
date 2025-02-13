@@ -23,7 +23,7 @@ import { useMemberStore } from '~/stores/member';
 import Keycloak from 'keycloak-js';
 
 const { t } = useI18n();
-const { $getKcInstance } = useNuxtApp();
+const { $keycloak } = useNuxtApp();
 const member = useMemberStore(); 
 
 const scrollEffectOn: Ref<boolean> = ref(false);
@@ -32,7 +32,7 @@ const memberFuncs: MemberFunctions[] = [
 {
     show: !member.authorized,
     onClick: async () => {
-      const keycloak: Keycloak = await $getKcInstance();
+      const keycloak: Keycloak = $keycloak;
       keycloak.register();
     },
     icon: SignupSvg,
@@ -41,7 +41,7 @@ const memberFuncs: MemberFunctions[] = [
   {
     show: !member.authorized,
     onClick: async () => {
-      const keycloak: Keycloak = await $getKcInstance();
+      const keycloak: Keycloak = $keycloak;
       keycloak.login();
     },
     icon: LoginSvg,
@@ -50,7 +50,7 @@ const memberFuncs: MemberFunctions[] = [
   {
     show: member.authorized,
     onClick: async () => {
-      const keycloak: Keycloak = await $getKcInstance();
+      const keycloak: Keycloak = $keycloak;
       keycloak.logout();
     },
     icon: LogoutSvg,
@@ -59,6 +59,6 @@ const memberFuncs: MemberFunctions[] = [
 ]
 
 onMounted(() => {
-  $getKcInstance();
+  // $getKcInstance();
 })
 </script>
