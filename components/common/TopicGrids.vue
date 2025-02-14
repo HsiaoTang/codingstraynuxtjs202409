@@ -1,3 +1,19 @@
+<script setup lang="ts">
+import { useRuntimeConfig } from '~/node_modules/nuxt/dist/app';
+import { useI18n } from 'vue-i18n';
+
+interface TopicGridProps {
+  title: string;
+  url: string;
+}
+
+const runtimeConfig = useRuntimeConfig();
+const props = defineProps<{ topicGridPropsArray: TopicGridProps[] }>();
+const { t } = useI18n()
+
+// const props = defineProps<{ topic: string }>()
+
+</script>
 <template>
   <div class="grid grid-cols-2 md:grid-cols-3 h-screen-60">
     <div 
@@ -16,19 +32,3 @@
     </div>
   </div>
 </template>
-<script setup lang="ts">
-import { useRuntimeConfig } from '~/node_modules/nuxt/dist/app';
-import { useI18n } from 'vue-i18n';
-
-interface TopicGridProps {
-  title: string;
-  url: string;
-}
-
-const runtimeConfig = useRuntimeConfig();
-const props = defineProps<{ topicGridPropsArray: TopicGridProps[] }>();
-const { t } = useI18n()
-
-// const props = defineProps<{ topic: string }>()
-
-</script>

@@ -1,11 +1,3 @@
-<template>
-  <div>
-    <button @click="themeStore.toggleTheme">test theme</button>
-    <p>theme: {{ themeStore.theme }} </p>
-    <p>{{ t('test.test') }}</p>
-    <a :href="runtimeConfig.public.keycloakUrl">test env</a>
-  </div>
-</template>
 <script setup lang="ts">
 import { useThemeStore } from '~/stores/theme';
 import { useI18n } from 'vue-i18n';
@@ -19,6 +11,11 @@ const { t } = useI18n();
 // })
 
 </script>
-<style scoped>
-
-</style>
+<template>
+  <div>
+    <button @click="themeStore.toggleTheme">test theme</button>
+    <p>theme: {{ themeStore.theme }} </p>
+    <p>{{ t('test.test') }}</p>
+    <a :href="runtimeConfig.public.keycloakUrl">test env</a>
+  </div>
+</template>
