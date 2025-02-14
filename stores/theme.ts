@@ -6,9 +6,9 @@ export const useThemeStore = defineStore('themeStore', () => {
   const toggleTheme: () => void = () =>  {
     theme.value = theme.value === 'light' ? 'dark' : 'light';
     document.documentElement.setAttribute('data-theme', theme.value);
-  };
+  }
 
-  return { theme, toggleTheme };
+  return { theme, toggleTheme }
 
 });
 

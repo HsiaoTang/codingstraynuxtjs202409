@@ -1,3 +1,27 @@
+<script setup lang="ts">
+import { useI18n } from 'vue-i18n';
+import { ref, onMounted, onBeforeUnmount, type Ref } from 'vue';
+
+const { t, locale, availableLocales } = useI18n();
+const currentYear: number = new Date().getFullYear();
+
+const isScrolled: Ref<boolean> = ref(false);
+
+const handleScroll: () => void = () => {
+    const scrollTop: number = window.scrollY;
+    isScrolled.value = scrollTop > 32;
+  }
+
+onMounted(() => {
+  handleScroll();
+  window.addEventListener('scroll', handleScroll);
+});
+
+onBeforeUnmount(() => {
+  window.removeEventListener('scroll', handleScroll);
+});
+
+</script>
 <template>
   <footer 
     :class="['fixed bottom-0 left-0 right-0 h-16 p-2 z-10 content-center transition duration-500',
@@ -25,27 +49,3 @@
     </div>
   </footer>
 </template>
-<script setup lang="ts">
-import { useI18n } from 'vue-i18n';
-import { ref, onMounted, onBeforeUnmount, type Ref } from 'vue';
-
-const { t, locale, availableLocales } = useI18n();
-const currentYear: number = new Date().getFullYear();
-
-const isScrolled: Ref<boolean> = ref(false);
-
-const handleScroll: () => void = () => {
-    const scrollTop: number = window.scrollY;
-    isScrolled.value = scrollTop > 32;
-  }
-
-onMounted(() => {
-  handleScroll();
-  window.addEventListener('scroll', handleScroll);
-});
-
-onBeforeUnmount(() => {
-  window.removeEventListener('scroll', handleScroll);
-});
-
-</script>

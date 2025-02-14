@@ -1,15 +1,3 @@
-<template>
-  <div 
-    class="flex flex-col bg-fixed bg-cover h-dvh text-green-100 text-2xl font-extrabold drop-shadow-md justify-center"
-    :style="[{ 
-      backgroundImage: `url('${runtimeConfig.public.imgResourcesBaseUrl}${props.indexBackDropUrl}')`,
-    }]"
-  >
-    <div v-for="webIntro in props.webIntroLines" class="self-center">
-      {{ webIntro }}
-    </div>
-  </div>
-</template>
 <script setup lang="ts">
 import { useRuntimeConfig } from '~/node_modules/nuxt/dist/app';
 
@@ -28,3 +16,15 @@ const props = withDefaults(defineProps<IndexBackDropProps>(),
 );
 
 </script>
+<template>
+  <div 
+    class="flex flex-col bg-fixed bg-cover h-dvh text-green-100 text-2xl font-extrabold drop-shadow-md justify-center"
+    :style="[{ 
+      backgroundImage: `url('${runtimeConfig.public.imgResourcesBaseUrl}${props.indexBackDropUrl}')`,
+    }]"
+  >
+    <div v-for="webIntro in props.webIntroLines" class="self-center">
+      {{ webIntro }}
+    </div>
+  </div>
+</template>

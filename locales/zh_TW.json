@@ -17,6 +17,53 @@
   "sport": "運動",
   "politics": "政治",
   "music": "音樂",
+  "username": "使用者名稱",
+  "password": "密碼",
+  "confirm_password": "確認密碼",
+  "email": "電子信箱",
+  "first_name": "名",
+  "last_name": "姓",
+  "about": "關於你",
+  "birthday": "生日",
+  "gender": "性別",
+  "pic": "頭像",
+  "error_hint": {
+    "username": {
+      "required": "此欄位為必填"
+    },
+    "password": {
+      "required": "此欄位為必填"
+    },
+    "confirm_password": {
+      "required": "此欄位為必填",
+      "length": "",
+      "equals": ""
+    },
+    "email": {
+      "required": "此欄位為必填",
+      "length": "",
+      "format": ""
+    },
+    "first_name": {
+      "required": "此欄位為必填"
+    },
+    "last_name": {
+      "required": "此欄位為必填"
+    },
+    "about": {
+      "required": "此欄位為必填"
+    },
+    "birthday": {
+      "required": "此欄位為必填"
+    },
+    "gender": {
+      "required": "此欄位為必填"
+    },
+    "pic": {
+      "required": "此欄位為必填",
+      "max": ""
+    }
+  },
   "test": {
     "test": "測試"
   }

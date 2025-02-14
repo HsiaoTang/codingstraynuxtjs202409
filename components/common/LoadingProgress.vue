@@ -1,12 +1,3 @@
-<template>
-  <div 
-    class="fixed w-full h-4 bg-gray-400 z-30"
-    :style="{width: progress + '%'}"
-    v-if="loading"
-  >
-
-  </div>
-</template>
 <script setup lang="ts">
 import { onMounted, onUnmounted, ref, type Ref } from 'vue';
 
@@ -34,3 +25,12 @@ onUnmounted(() => {
   window.removeEventListener('progress', handleProgress);
 });
 </script>
+<template>
+  <div 
+    class="fixed w-full h-4 bg-gray-400 z-30"
+    :style="{width: progress + '%'}"
+    v-if="loading"
+  >
+
+  </div>
+</template>

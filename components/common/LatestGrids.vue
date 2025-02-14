@@ -1,3 +1,15 @@
+<script setup lang="ts">
+// import { useI18n } from 'vue-i18n';
+
+// interface TopicGridProps {
+//   title: string;
+//   url: string;
+// }
+
+// const props = defineProps<{ topicGridPropsArray: TopicGridProps[] }>();
+// const { t } = useI18n()
+
+</script>
 <template>
   <!-- <div class="grid grid-cols-3">
     <div 
@@ -17,15 +29,3 @@
   </div> -->
   <div>latest</div>
 </template>
-<script setup lang="ts">
-// import { useI18n } from 'vue-i18n';
-
-// interface TopicGridProps {
-//   title: string;
-//   url: string;
-// }
-
-// const props = defineProps<{ topicGridPropsArray: TopicGridProps[] }>();
-// const { t } = useI18n()
-
-</script>
