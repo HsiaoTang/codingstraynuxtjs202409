@@ -17,56 +17,42 @@
   "sport": "Sport",
   "politics": "Politics",
   "music": "Music",
-  "username": "使用者名稱",
-  "password": "密碼",
-  "confirm_password": "確認密碼",
-  "email": "電子信箱",
-  "first_name": "名",
-  "last_name": "姓",
-  "about": "關於你",
-  "birthday": "生日",
-  "gender": "性別",
-  "pic": "頭像",
+  "edit_profile": "Edit Profile",
+  "required_field": "*Required field",
+  "required_symbol": "*",
+  "username": "Username",
+  "password": "Password",
+  "confirm_password": "Confirm Password",
+  "email": "Email",
+  "first_name": "First name",
+  "last_name": "Last name",
+  "about": "About",
+  "birthday": "Birthday",
+  "gender": "Gender",
+  "male": "Male",
+  "female": "Female",
+  "pic": "Profile picture",
   "error_hint": {
-    "username": {
-      "required": "此欄位為必填",
-      "length": ""
-    },
-    "password": {
-      "required": "此欄位為必填",
-      "length": ""
-    },
-    "confirm_password": {
-      "required": "此欄位為必填",
-      "length": "",
-      "equals": ""
-    },
-    "email": {
-      "required": "此欄位為必填",
-      "length": "",
-      "format": ""
-    },
-    "first_name": {
-      "required": "此欄位為必填"
-    },
-    "last_name": {
-      "required": "此欄位為必填"
-    },
-    "about": {
-      "required": "此欄位為必填"
-    },
-    "birthday": {
-      "required": "此欄位為必填"
-    },
-    "gender": {
-      "required": "此欄位為必填"
-    },
-    "pic": {
-      "required": "此欄位為必填",
-      "max": ""
-    }
+    "required": "*This field is required",
+    "string_min_3": "*Must be at least 3 characters",
+    "string_min_8": "*Must be at least 8 characters",
+    "string_max_255": "*Must not exceed 255 characters",
+    "string_max_500": "*Must not exceed 500 characters",
+    "password_match": "*Passwords must match",
+    "string_contain_upper_case": "*Must contain at least one uppercase letter",
+    "string_contain_lower_case": "*Must contain at least one lowercase letter",
+    "email_validate": "*Please enter a valid email address",
+    "before_today": "*Birthday should be before today",
+    "gender_between": "*Gender must be 'M' or 'F'",
+    "file_type": "*The file must be an image",
+    "file_size": "*File size must not exceed 2MB"
   },
+  "placeholder": {
+    "gender_select": "Please select your gender"
+  },
+  "confirm": "Confirm",
   "test": {
-    "test": "test"
+    "test": "test",
+    "test1": "test1"
   }
 }

@@ -1,11 +1,7 @@
-<template>
-  <TabContol :tabFuncs="tabFuncs"/>
-</template>
-
 <script setup lang="ts">
 import { definePageMeta } from '~/node_modules/nuxt/dist/pages/runtime/composables';
 import { LatestSvg, PopularSvg, TopicsSvg } from '~/assets/icons';
-import { TabContol, TopicGrids, PopularGrids, LatestGrids } from '~/components/common';
+import { TabContol, TopicGrids, PopularGrids, LatestGrids } from '~/components';
 
 definePageMeta({ layout: 'entrypoint', middleware: 'auth' });
 
@@ -94,3 +90,6 @@ const tabFuncs = [
 ];
 
 </script>
+<template>
+  <TabContol :tabFuncs="tabFuncs"/>
+</template>

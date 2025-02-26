@@ -1,20 +1,6 @@
-<template>
-  <div>
-    <Navbar
-      :title="t('title')" 
-      :logoIcon="LogoSvg"
-      :memberFuncs="memberFuncs"
-      :scrollEffectOn="scrollEffectOn"
-    />
-    <main class="bg-green-50">
-      <NuxtPage />
-    </main>
-    <Footer></Footer>
-  </div>
-</template>
 <script setup lang="ts">
 import { type MemberFunctions } from '~/components/common/Navbar.vue';
-import { Navbar, Footer } from '~/components/common';
+import { Navbar, Footer } from '~/components';
 import { useNuxtApp } from 'nuxt/app';
 import { onMounted, ref, type Ref } from 'vue';
 import { LogoSvg, SignupSvg, LoginSvg, LogoutSvg } from '~/assets/icons';
@@ -62,3 +48,17 @@ onMounted(() => {
   // $getKcInstance();
 })
 </script>
+<template>
+  <div>
+    <Navbar
+      :title="t('title')" 
+      :logoIcon="LogoSvg"
+      :memberFuncs="memberFuncs"
+      :scrollEffectOn="scrollEffectOn"
+    />
+    <main class="bg-green-50">
+      <NuxtPage />
+    </main>
+    <Footer></Footer>
+  </div>
+</template>

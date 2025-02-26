@@ -11,6 +11,7 @@ const { t } = useI18n();
 // })
 
 </script>
+
 <template>
   <div>
     <button @click="themeStore.toggleTheme">test theme</button>

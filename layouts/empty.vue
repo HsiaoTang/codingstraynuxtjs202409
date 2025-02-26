@@ -1,3 +1,6 @@
+<script setup lang="ts">
+
+</script>
 <template>
   <div>
     <main class="bg-green-50">
@@ -5,6 +8,3 @@
     </main>
   </div>
 </template>
-<script setup lang="ts">
-
-</script>

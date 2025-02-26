@@ -1,6 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  css: ['@/assets/css/fonts.css'],
+  css: ['~/assets/css/fonts.css'],
   compatibilityDate: '2024-11-01',
   devtools: { enabled: true },
   imports: { autoImport: false },
@@ -20,7 +20,8 @@ export default defineNuxtConfig({
       keycloakUrl: process.env.KEYCLOAK_URL,
       keycloakRealm: process.env.KEYCLOAK_REALM,
       keycloakClientId: process.env.KEYCLOAK_CLIENT_ID,
-      imgResourcesBaseUrl : process.env.IMG_RESOURCES_BASE_URL
+      imgResourcesBaseUrl : process.env.IMG_RESOURCES_BASE_URL,
+      profilePicSizeLimitMB: process.env.PROFILE_PIC_SIZE_LIMIT_MB
     }
   },
 })

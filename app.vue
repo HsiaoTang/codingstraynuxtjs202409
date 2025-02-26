@@ -8,11 +8,14 @@
     </Head>
     <Body>
       <NuxtLayout />
+      <Toast />
     </Body>
   </div>
 </template>
 
 <script setup lang="ts">
+import Toast from './components/common/Toast.vue';
+
 
 const headProps: Record<string, string> = {
   title: 'CodingStray',

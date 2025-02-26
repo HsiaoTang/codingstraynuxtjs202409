@@ -17,6 +17,9 @@
   "sport": "運動",
   "politics": "政治",
   "music": "音樂",
+  "edit_profile": "編輯資料",
+  "required_field": "*必填欄位",
+  "required_symbol": "*",
   "username": "使用者名稱",
   "password": "密碼",
   "confirm_password": "確認密碼",
@@ -26,45 +29,30 @@
   "about": "關於你",
   "birthday": "生日",
   "gender": "性別",
+  "male": "男",
+  "female": "女",
   "pic": "頭像",
   "error_hint": {
-    "username": {
-      "required": "此欄位為必填"
-    },
-    "password": {
-      "required": "此欄位為必填"
-    },
-    "confirm_password": {
-      "required": "此欄位為必填",
-      "length": "",
-      "equals": ""
-    },
-    "email": {
-      "required": "此欄位為必填",
-      "length": "",
-      "format": ""
-    },
-    "first_name": {
-      "required": "此欄位為必填"
-    },
-    "last_name": {
-      "required": "此欄位為必填"
-    },
-    "about": {
-      "required": "此欄位為必填"
-    },
-    "birthday": {
-      "required": "此欄位為必填"
-    },
-    "gender": {
-      "required": "此欄位為必填"
-    },
-    "pic": {
-      "required": "此欄位為必填",
-      "max": ""
-    }
+    "required": "*此欄位為必填",
+    "string_min_3": "*不得少於3字元",
+    "string_min_8": "*不得少於8字元",
+    "string_max_255": "*不得超過255字元",
+    "password_match": "*密碼不相符",
+    "string_max_500": "*不得超過500字元",
+    "string_contain_upper_case": "*必須包含1個大寫字母",
+    "string_contain_lower_case": "*必須包含1個小寫字母",
+    "email_validate": "*請輸入有效的電子信箱",
+    "before_today": "*生日應該在今天以前",
+    "gender_between": "*性別必須是「男」或「女」",
+    "file_type": "*檔案必須為圖片",
+    "file_size": "*檔案大小不得超過2MB"
   },
+  "placeholder": {
+    "gender_select": "請選擇性別"
+  },
+  "confirm": "確定",
   "test": {
-    "test": "測試"
+    "test": "測試",
+    "test1": "test1"
   }
 }

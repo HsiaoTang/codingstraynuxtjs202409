@@ -4,8 +4,6 @@ import { SearchSvg, MemberSvg } from '~/assets/icons';
 import { ref, onMounted, onBeforeUnmount, type Ref } from 'vue';
 import { useNuxtApp } from 'nuxt/app';
 
-const { $keycloak } = useNuxtApp();
-
 const { t } = useI18n();
 
 const isSidebarOpen: Ref<boolean> = ref(false);
